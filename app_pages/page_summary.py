@@ -22,7 +22,7 @@ def page_summary_body():
     # Link to README file, so the users can have access to full project documentation
     st.write(
         f"* For additional information, please visit and **read** the "
-        f"[Project README file](https://github.com/joplar/banking-churnometer).")
+        f"[Project README file](https://github.com/JohanPlAr/banking-churnometer/blob/main/README.md).")
     
 
     # copied from README file - "Business Requirements" section
