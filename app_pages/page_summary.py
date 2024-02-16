@@ -1,4 +1,5 @@
 import streamlit as st
+import plotly.express as px
 
 def page_summary_body():
 
