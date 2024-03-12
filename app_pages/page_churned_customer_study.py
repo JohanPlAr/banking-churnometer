@@ -44,7 +44,12 @@ def page_churned_customer_study_body():
     st.info(
         f"The correlation indications and plots below interpretation converge. "
         f"It is indicated that: \n"
-      
+        f"A churned customer typically is older than 40. \n"
+        f"A churned customer typically has a mid-range or higher account Balance. \n"
+        f"A churned customer typically is Female. \n"
+        f"A churned customer typically is German. \n"
+        f"A churned customer typically has 0 Number of Products. \n"
+        f"A churned customer typically is not an Active Member. \n"
     )
 
     # Code copied from "02 - Churned Customer Study" notebook - "EDA on selected variables" section
@@ -57,13 +62,14 @@ def page_churned_customer_study_body():
     # Parallel plot
     if st.checkbox("Parallel Plot"):
         st.write(
-            f"* Information in yellow indicates the profile from a churned customer")
+            f"* Information in yellow indicates the profile from a churned customer"
+            )
         parallel_plot_churn(df_eda)
 
 
 # function created using "02 - Churned Customer Study" notebook code - "Variables Distribution by Churn" section
 def churn_level_per_variable(df_eda):
-    target_var = 'Churn'
+    target_var = 'Exited'
 
     for col in df_eda.drop([target_var], axis=1).columns.to_list():
         if df_eda[col].dtype == 'object':
@@ -94,25 +100,44 @@ def plot_numerical(df, col, target_var):
 def parallel_plot_churn(df_eda):
 
     # hard coded from "disc.binner_dict_['tenure']"" result,
-    tenure_map = [-np.Inf, 6, 12, 18, 24, np.Inf]
+    tenure_map = [-np.Inf, 2, 7, np.Inf]
+    age_map = [-np.Inf, 35, 40, np.Inf]
+    num_of_prods_map = [-np.Inf, 1, np.Inf]
+    balance_map = [-float('Inf'), 25000, 125000, float('Inf')]
+    # credit_score_map = [-float('Inf'), 600, 700, float('Inf')]
+    estimated_salary_map = [-float('Inf'), 50000, 100000, 150000, 200000, float('Inf')]
     # found at "02 - Churned Customer Study" notebook
     # under "Parallel Plot" section
-    disc = ArbitraryDiscretiser(binning_dict={'Tenure': tenure_map})
+    disc = ArbitraryDiscretiser(binning_dict={'Age':age_map, 
+                                              'Balance': balance_map,
+                                            #   'CreditScore':credit_score_map, 
+                                            #   'EstimatedSalary': estimated_salary_map, 
+                                              'Tenure':tenure_map,
+                                              'NumOfProducts':num_of_prods_map})
     df_parallel = disc.fit_transform(df_eda)
 
-    n_classes = len(tenure_map) - 1
-    classes_ranges = disc.binner_dict_['Tenure'][1:-1]
-    LabelsMap = {}
-    for n in range(0, n_classes):
-        if n == 0:
-            LabelsMap[n] = f"<{classes_ranges[0]}"
-        elif n == n_classes-1:
-            LabelsMap[n] = f"+{classes_ranges[-1]}"
-        else:
-            LabelsMap[n] = f"{classes_ranges[n-1]} to {classes_ranges[n]}"
+    def labels_map(col_data_map, col_data):
+        n_classes = len(col_data_map) - 1
+        classes_ranges = disc.binner_dict_[col_data][1:-1]
 
-    df_parallel['Tenure'] = df_parallel['Tenure'].replace(LabelsMap)
+        labels_map = {}
+        for n in range(0, n_classes):
+            if n == 0:
+                labels_map[n] = f"<{classes_ranges[0]}"
+            elif n == n_classes-1:
+                labels_map[n] = f"+{classes_ranges[-1]}"
+            else:
+                labels_map[n] = f"{classes_ranges[n-1]} to {classes_ranges[n]}"
+        labels_map
+        return labels_map
+
+
+    df_parallel['Age'] = df_parallel['Age'].replace(labels_map(age_map,'Age'))
+    df_parallel['Balance'] = df_parallel['Balance'].replace(labels_map(balance_map,'Balance'))
+    # df_parallel['EstimatedSalary'] = df_parallel['EstimatedSalary'].replace(labels_map(estimated_salary_map,'EstimatedSalary'))
+    # df_parallel['CreditScore'] = df_parallel['CreditScore'].replace(labels_map(credit_score_map,'CreditScore'))
+    df_parallel['Tenure'] = df_parallel['Tenure'].replace(labels_map(tenure_map,'Tenure'))
     fig = px.parallel_categories(
-        df_parallel, color="Churn", width=750, height=500)
+        df_parallel, color="Exited", width=750, height=500)
     # we use st.plotly_chart() to render, in notebook is fig.show()
     st.plotly_chart(fig)
