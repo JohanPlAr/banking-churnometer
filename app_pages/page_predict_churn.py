@@ -29,7 +29,7 @@ def page_predict_churn_body():
     st.info(
         f"* The pipeline was tuned aiming at least 0.80 Recall on 'Yes Churn' class, "
         f"since we are interested in this project in detecting a potential churner. \n"
-        f"* The pipeline performance on train and test set is 0.90 and 0.85, respectively."
+        f"* The pipeline performance on train and test set is 0.80 and 0.80, respectively."
     )
 
     # show pipelines

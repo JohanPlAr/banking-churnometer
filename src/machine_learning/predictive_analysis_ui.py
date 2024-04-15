@@ -48,11 +48,11 @@ def predict_tenure(X_live, tenure_features, tenure_pipeline, tenure_labels_map):
     if tenure_prediction != 1:
         statement = (
             f"* In addition, there is a {proba.round(2)}% probability the prospect "
-            f"will stay **{tenure_levels} months**. "
+            f"will stay **{tenure_levels} years**. "
         )
     else:
         statement = (
-            f"* The model has predicted the prospect would stay **{tenure_levels} months**, "
+            f"* The model has predicted the prospect would stay **{tenure_levels} years**, "
             f"however we acknowledge that the recall and precision levels for {tenure_levels} is not "
             f"strong. The AI tends to identify potential churners, but for this prospect the AI is not "
             f"confident enough on how long the prospect would stay."

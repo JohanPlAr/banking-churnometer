@@ -13,7 +13,6 @@ def page_churned_customer_study_body():
 
     # load data
     df = load_bank_data()
-
     # hard copied from churned customer study notebook
     vars_to_study = ['Age','Balance','CreditScore','EstimatedSalary', 'Gender', 'Geography', 'IsActiveMember', 'NumOfProducts','Tenure']
 

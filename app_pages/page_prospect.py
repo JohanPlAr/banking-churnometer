@@ -108,11 +108,14 @@ def DrawInputsWidgets():
     X_live[feature] = st_widget
 
     with col2:
-        feature = "IsActiveMember"
-        st_widget = st.selectbox(
+        feature = "Balance"
+        st_widget = st.number_input(
             label=feature,
-            options=df[feature].unique()
-        )
+            min_value=int(df[feature].min()),
+            max_value=int(df[feature].max()),
+            value=int(df[feature].median()),
+            step=5000
+            )
     X_live[feature] = st_widget
 
     with col3:
@@ -121,7 +124,8 @@ def DrawInputsWidgets():
             label=feature,
             min_value=int(df[feature].min()),
             max_value=int(df[feature].max()),
-            value=int(df[feature].median())
+            value=int(df[feature].median()),
+            step=5
         )
     X_live[feature] = st_widget
 
@@ -131,25 +135,32 @@ def DrawInputsWidgets():
             label=feature,
             min_value=int(df[feature].min()),
             max_value=int(df[feature].max()),
-            value=int(df[feature].median())
+            value=int(df[feature].median()),
+            step=25
         )
     X_live[feature] = st_widget
 
     with col5:
-        feature = "Gender"
-        st_widget = st.selectbox(
+        feature = "EstimatedSalary"
+        st_widget = st.number_input(
             label=feature,
-            options=df[feature].unique()
+            min_value=int(df[feature].min()),
+            max_value=int(df[feature].max()),
+            value=int(df[feature].median()),
+            step=5000
         )
     X_live[feature] = st_widget
 
     with col6:
-        feature = "Geography"
-        st_widget = st.selectbox(
+        feature = "Tenure"
+        st_widget = st.number_input(
             label=feature,
-            options=df[feature].unique()
+            min_value=int(df[feature].min()),
+            max_value=int(df[feature].max()),
+            value=int(df[feature].median()),
+            step=1  # Set the step size to 0.1 for float values
         )
-    X_live[feature] = st_widget
+    X_live['NewTenure'] = st_widget/X_live['Age']
 
     st.write(X_live)
 

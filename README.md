@@ -1,72 +1,65 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-## Codeanywhere Template Instructions
 
-Welcome,
+## About Dataset
 
-This is the Code Institute student template for Codeanywhere. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
+- The dataset is sourced from Kaggle. A fictitious user story was created where predictive analytics can be applied in a real project in the workplace.
 
-You can safely delete the IDE Template Instructions section of this README.md file,  and modify the remaining paragraphs for your own project. Please do read the IDE Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use. 
+- The bank customer churn dataset is a commonly used dataset for predicting customer churn in the banking industry. It contains information on bank customers who either left the bank or continue to be a customer. The dataset has 10 000 rows and includes the following attributes:
 
-## How to use this repo
-
-1. Use this template to create your GitHub project repo
-
-1. Log into <a href="https://app.codeanywhere.com/" target="_blank" rel="noreferrer">CodeAnywhere</a> with your GitHub account.
-
-1. On your Dashboard, click on the New Workspace button
-
-1. Paste in the URL you copied from GitHub earlier
-
-1. Click Create
-
-1. Wait for the workspace to open. This can take a few minutes.
-
-1. Open a new terminal and <code>pip3 install -r requirements.txt</code>
-
-1. In the terminal type <code>pip3 install jupyter</code>
-
-1. In the terminal type <code>jupyter notebook --NotebookApp.token='' --NotebookApp.password=''</code> to start the jupyter server.
-
-1. Open port 8888 preview or browser
-
-1. Open the jupyter_notebooks directory in the jupyter webpage that has opened and click on the notebook you want to open.
-
-1. Click the button Not Trusted and choose Trust.
-
-Note that the kernel says Python 3. It inherits from the workspace so it will be Python-3.8.12 as installed by our template. To confirm this you can use <code>! python --version</code> in a notebook code cell.
-
-## IDE Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In the IDE terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-
-## Dataset Content
-* Describe your dataset. Choose a dataset of reasonable size to avoid exceeding the repository's maximum size and to have a shorter model training time. If you are doing an image recognition project, we suggest you consider using an image shape that is 100px × 100px or 50px × 50px, to ensure the model meets the performance requirement but is smaller than 100Mb for a smoother push to GitHub. A reasonably sized image set is ~5000 images, but you can choose ~10000 lines for numeric or textual data. 
+- Customer ID: A unique identifier for each customer
+- Surname: The customer's surname or last name
+- Credit Score: A numerical value representing the customer's credit score
+- Geography: The country where the customer resides (France, Spain, or Germany)
+- Gender: The customer's gender (Male or Female)
+- Age: The customer's age
+- Tenure: The number of years the customer has been with the bank
+- Balance: The customer's account balance
+- NumOfProducts: The number of bank products the customer uses (e.g., savings account, credit card)
+- HasCrCard: Whether the customer has a credit card (1 = yes, 0 = no)
+- IsActiveMember: Whether the customer is an active member (1 = yes, 0 = no)
+- EstimatedSalary: The estimated salary of the customer
+- Exited: Whether the customer has churned (1 = yes, 0 = no)
 
 
 ## Business Requirements
-* Describe your business requirements
-
+* Our bank is facing a significant challenge with customer churn, which is negatively impacting our revenue and growth. To address this issue, we require a robust predictive analysis solution that can accurately identify customers who are likely to churn.
 
 ## Hypothesis and how to validate?
-* List here your project hypothesis(es) and how you envision validating it (them) 
-
+* We suspect that active customers 
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks
 * List your business requirements and a rationale to map them to the Data Visualizations and ML tasks
 
 
 ## ML Business Case
-* In the previous bullet, you potentially visualized an ML task to answer a business requirement. You should frame the business case using the method we covered in the course 
+- What are the business requirements?
+The client interested in understanding first of all if but also why customers are likely to churn. Therefore, the client expects visualizations of the correlated variables against churned customers and an algoritm based churned predictor. The Client also wants to preidict the likely Tenure when a customer is predicted to churn. Also the client wish to conduct a Cluster analysis to better understand if there are any potential groupings of the customers that can improve marketing strategies.
+
+- Is there any business requirement that can be answered with conventional data analysis?
+Yes, we can use conventional data analysis to investigate the correlation between variables and churned customers.
+- Does the client need a dashboard or an API endpoint?
+The client needs a dashboard.
+- What does the client consider as a successful project outcome?
+A customer prospect churn prediction relying on a machine learning model. A predict Tenure Model implemented with the predict churn model to help the client identify high risk churning. A cluster Study with to identify groups of customers that might benefit marketing strategies. 
+- Can you break down the project into Epics and User Stories?
+Information gathering and data collection.
+Data visualization, cleaning, and preparation.
+Model training, optimization and validation.
+Dashboard planning, designing, and development.
+Dashboard deployment and release.
+- Ethical or Privacy concerns?
+No. The client found a public dataset.
+- Does the data suggest a particular model?
+The data suggests a classifier where the target is to classify either churned or not churned prospect customers. This also applies for the Cluster Study.
+- What are the model's inputs and intended outputs?
+The inputs are information aboutg the customer prospect and the output is the churn prediction.
+What are the criteria for the performance goal of the predictions?
+We agreed with the client on an Recall score of at least 0.80 on the train set as well as on the test set.
+How will the client benefit?
+- Reduce Customer Churn through identification of customers at risk of churning, enabling proactive retention strategies and reducing overall customer attrition.
+- Improve Customer Lifetime Value the client can retain more customers and aim to increase the average customer lifetime value, leading to higher revenue and profitability.
+- Enhance Targeted Marketing Campaigns: The predictive model will provide valuable insights to tailor our marketing efforts and personalize offers, leading to more effective customer engagement and retention.
 
 
 ## Dashboard Design

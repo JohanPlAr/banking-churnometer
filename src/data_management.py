@@ -5,7 +5,7 @@ import joblib
 
 @st.cache(suppress_st_warning=True, allow_output_mutation=True)
 def load_bank_data():
-    df = pd.read_csv("outputs/datasets/collection/bank-customer-churn.csv")
+    df = pd.read_csv("outputs/datasets/collection/bank_customer_churn.csv")
     return df
 
 

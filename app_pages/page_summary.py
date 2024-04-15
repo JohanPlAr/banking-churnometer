@@ -11,12 +11,12 @@ def page_summary_body():
         f"* A **customer** is a person who consumes your service or product.\n"
         f"* A **prospect** is a potential customer.\n"
         f"* A **churned** customer is a user who has stopped using your product or service.\n "
-        f"* This customer has a **tenure** level, the number of months this person " 
+        f"* This customer has a **tenure** level, the number of years this person " 
         f"has used our product/service.\n\n"
         f"**Project Dataset**\n"
         f"* The dataset represents a **customer base from a Banking company** "
         f"containing individual customer data on the products and services "
-        f"(like, Has Credit Card, Number Of Products, Tenure, Is Active Member), "
+        f"(like, Has Credit Card, Number Of Products, Is Active Member, Tenure), "
         f"account information (like Credit Score, Balance, Estimated Salary) "
         f"and profile (like Gender, Age, Geography).")
 
