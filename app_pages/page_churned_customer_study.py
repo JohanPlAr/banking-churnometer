@@ -14,7 +14,14 @@ def page_churned_customer_study_body():
     # load data
     df = load_bank_data()
     # hard copied from churned customer study notebook
-    vars_to_study = ['Age','Balance','CreditScore','EstimatedSalary', 'Gender', 'Geography', 'IsActiveMember', 'NumOfProducts','Tenure']
+    vars_to_study = [
+                     'Age',
+                     'Balance',
+                     'Gender',
+                     'Geography',
+                     'IsActiveMember',
+                     'NumOfProducts'
+                     ]
 
     st.write("### Churned Customer Study")
     st.info(
@@ -41,19 +48,23 @@ def page_churned_customer_study_body():
 
     # Text based on "02 - Churned Customer Study" notebook - "Conclusions and Next steps" section
     st.info(
-        f"The correlation indications and plots below interpretation converge. "
-        f"It is indicated that: \n"
-        f"A churned customer typically is older than 40. \n"
-        f"A churned customer typically has a mid-range or higher account Balance. \n"
-        f"A churned customer typically is Female. \n"
-        f"A churned customer typically is German. \n"
-        f"A churned customer typically has 0 Number of Products. \n"
-        f"A churned customer typically is not an Active Member. \n"
+    "The correlation indications and plots below interpretation converge. \n"
+    "It is indicated that:\n"
+    "- A churned customer is typically in the range between 47 and 58 years old.\n"
+    "- A churned customer typically has a mid-range or higher account Balance.\n"
+    "- A churned customer is typically Female.\n"
+    "- A churned customer is typically from Germany.\n"
+    "- A churned customer typically has 1 or 3-4 Number of Products.\n"
+    "- A churned customer is typically not an Active Member."
     )
 
     # Code copied from "02 - Churned Customer Study" notebook - "EDA on selected variables" section
     df_eda = df.filter(vars_to_study + ['Exited'])
-
+    # Change value names in studied variable for better ux.
+    df_eda['Gender'] = df_eda['Gender'].replace({0: 'Male', 1:"Female"})
+    # Change to object variable to plot categorical
+    df_eda['NumOfProducts'] = df_eda['NumOfProducts'].astype(object)
+    df_eda['IsActiveMember'] = df_eda['IsActiveMember'].replace({0: 'Not Active', 1:"Active"})
     # Individual plots per variable
     if st.checkbox("Churn Levels per Variable"):
         churn_level_per_variable(df_eda)
@@ -98,27 +109,18 @@ def plot_numerical(df, col, target_var):
 # function created using "02 - Churned Customer Study" notebook code - Parallel Plot section
 def parallel_plot_churn(df_eda):
 
-    # hard coded from "disc.binner_dict_['tenure']"" result,
-    tenure_map = [-np.Inf, 2, 7, np.Inf]
-    age_map = [-np.Inf, 35, 40, np.Inf]
-    num_of_prods_map = [-np.Inf, 1, np.Inf]
-    balance_map = [-float('Inf'), 25000, 125000, float('Inf')]
-    # credit_score_map = [-float('Inf'), 600, 700, float('Inf')]
-    estimated_salary_map = [-float('Inf'), 50000, 100000, 150000, 200000, float('Inf')]
+    # hard coded from "disc.binner_dict_['Age','Balance']"" result,
+    age_map = [-np.Inf, 35, 47, 58, np.Inf]
+    balance_map = [-float('Inf'), 75000, 125000, float('Inf')]
+    disc = ArbitraryDiscretiser(binning_dict={'Age':age_map, 'Balance': balance_map})
     # found at "02 - Churned Customer Study" notebook
     # under "Parallel Plot" section
     disc = ArbitraryDiscretiser(binning_dict={'Age':age_map, 
-                                              'Balance': balance_map,
-                                            #   'CreditScore':credit_score_map, 
-                                            #   'EstimatedSalary': estimated_salary_map, 
-                                              'Tenure':tenure_map,
-                                              'NumOfProducts':num_of_prods_map})
+                                              'Balance': balance_map})
     df_parallel = disc.fit_transform(df_eda)
-
     def labels_map(col_data_map, col_data):
         n_classes = len(col_data_map) - 1
         classes_ranges = disc.binner_dict_[col_data][1:-1]
-
         labels_map = {}
         for n in range(0, n_classes):
             if n == 0:
@@ -130,13 +132,12 @@ def parallel_plot_churn(df_eda):
         labels_map
         return labels_map
 
-
     df_parallel['Age'] = df_parallel['Age'].replace(labels_map(age_map,'Age'))
     df_parallel['Balance'] = df_parallel['Balance'].replace(labels_map(balance_map,'Balance'))
-    # df_parallel['EstimatedSalary'] = df_parallel['EstimatedSalary'].replace(labels_map(estimated_salary_map,'EstimatedSalary'))
-    # df_parallel['CreditScore'] = df_parallel['CreditScore'].replace(labels_map(credit_score_map,'CreditScore'))
-    df_parallel['Tenure'] = df_parallel['Tenure'].replace(labels_map(tenure_map,'Tenure'))
     fig = px.parallel_categories(
         df_parallel, color="Exited", width=750, height=500)
-    # we use st.plotly_chart() to render, in notebook is fig.show()
+    st.info('In Exited \n '
+            '- 1 = "Churned"\n' 
+            '- 0 = "Not Churned"')
     st.plotly_chart(fig)
+   

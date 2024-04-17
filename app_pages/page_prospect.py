@@ -82,21 +82,19 @@ def check_variables_for_UI(tenure_features, churn_features, cluster_features):
     st.write(
         f"* There are {len(combined_features)} features for the UI: \n\n {combined_features}")
 
-
 def DrawInputsWidgets():
 
     # load dataset
     df = load_bank_data()
-
-# we create input widgets only for 6 features
+# we create input widgets only for 8 features
     col1, col2, col3 = st.beta_columns(3)
     col4, col5, col6 = st.beta_columns(3)
+    col7, col8, = st.beta_columns(2)
 
     # We are using these features to feed the ML pipeline - values copied from check_variables_for_UI() result
 
     # create an empty DataFrame, which will be the live data
     X_live = pd.DataFrame([], index=[0])
-
     # from here on we draw the widget based on the variable type (numerical or categorical)
     # and set initial values
     with col1:
@@ -160,7 +158,26 @@ def DrawInputsWidgets():
             value=int(df[feature].median()),
             step=1  # Set the step size to 0.1 for float values
         )
-    X_live['NewTenure'] = st_widget/X_live['Age']
+    X_live['TenureByAge'] = st_widget/X_live['Age']
+
+    with col7:
+        feature = "Gender"
+        st_widget = st.selectbox(
+        label=feature,
+        options=["Male", "Female"],
+        )
+    if st_widget == "Male":
+        X_live[feature] = 0
+    else:
+        X_live[feature] = 1
+
+    with col8:
+        feature = "Geography"
+        st_widget = st.selectbox(
+        label=feature,
+        options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
 
     st.write(X_live)
 
