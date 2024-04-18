@@ -29,10 +29,10 @@ def page_summary_body():
     # copied from README file - "Business Requirements" section
     st.success(
         f"The project has 2 business requirements:\n"
-        f"* 1 - The client is interested in understanding the patterns from the customer base "
+        f"* 1 - Understand the patterns from the customer base "
         f"so that the client can learn the most relevant variables that are correlated to a "
         f"churned customer.\n"
-        f"* 2 - The client is interested in determining whether or not a given prospect will churn. "
+        f"* 2 - Determine whether or not a given prospect will churn."
         f"If so, the client is interested to know when. In addition, the client is "
         f"interested in learning from which cluster this prospect will belong in the customer base. "
         f"Based on that, present potential factors that could maintain and/or bring  "

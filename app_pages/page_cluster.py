@@ -52,25 +52,27 @@ def page_cluster_body():
     # text based on "07 - Modeling and Evaluation - Cluster Sklearn" notebook conclusions
     st.write("#### Cluster Profile")
     statement = (
-        f"* Historically, **users in Clusters 0 do not tend to Churn**, "
-        f"whereas in **Cluster 1 a third of users churned**, "
+        f"* Historically, **users in Clusters 0 do not tend to Churn (14% Churned)**, "
+        f"whereas in **Cluster 1 has 18% users churned**, "
         f"and in **Cluster 2 a quarter of users churned**. \n"
-        f"* From the Predict Churn study, we noticed that the ContractType and InternetService "
+        f"* From the Predict Churn study, we noticed that the  and "
         f"are the predictor variables to determine, if a person will churn or not.\n"
         f"* **One potential action** when you detect that a given prospect is expected to churn and "
-        f"will belong to cluster 1 or 2 is to mainly avoid month to month contract type, "
+        f"will belong to cluster 2 is to mainly, "
         f"like we learned in the churned customer study. \n"
-        f"* The salesperson would have then to consider the current product and services "
-        f"plan availability and encourage the prospect to move to another contract."
+        f"* The salesperson would have then to consider the current product satisfaction"
+        f"levels and not push more products than 2 and study the competative" 
+        f"landscape in the German market as it has the highest churn rate"
     )
     st.info(statement)
 
     # text based on "07 - Modeling and Evaluation - Cluster Sklearn" notebook conclusions
     statement = (
         f"* The cluster profile interpretation allowed us to label the cluster in the following fashion:\n"
-        f"* Cluster 0 has .\n"
-        f"* Cluster 1 has .\n"
-        f"* Cluster 2 has ."
+        f"* Cluster 0 are have 0 in their account Balance, are predominantly from France,\n"
+        f"uses 3-4 products and constitues of more females than males .\n\n"
+        f"* Cluster 1 has not 0 Balance are predominantly male.\n\n"
+        f"* Cluster 2 has are predominantly German customers with high account Balance."
     )
     st.success(statement)
 
@@ -78,8 +80,6 @@ def page_cluster_body():
     cluster_profile.index = [" "] * len(cluster_profile)
     st.table(cluster_profile)
 
-
-# code coped from "07 - Modeling and Evaluation - Cluster Sklearn" notebook - under "Cluster Analysis" section
 def cluster_distribution_per_variable(df, target):
 
     df_bar_plot = df.value_counts(["Clusters", target]).reset_index()
@@ -91,7 +91,6 @@ def cluster_distribution_per_variable(df, target):
                  color=target, width=800, height=350)
     fig.update_layout(xaxis=dict(tickmode='array',
                       tickvals=df['Clusters'].unique()))
-    # we replaced fig.show() for a streamlit command to render the plot
     st.plotly_chart(fig)
 
     df_relative = (df

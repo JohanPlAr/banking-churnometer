@@ -31,8 +31,8 @@ def page_predict_tenure_body():
             or Regression with PCA was able to reach Business Requirements \
         of R2 Score of 70% on Train and test sets or 80% Recall on Train and \
         Test set for the shortest Tenure period possible. In order to reach \
-        criteria the Tenure variable was binned in two categories. Up to five \
-        years or more than five years.")
+        criteria the Tenure variable was binned in two categories. '0 to 5 \
+        years' or 'more than 5 years'.")
     st.write("---")
 
     # show pipeline steps

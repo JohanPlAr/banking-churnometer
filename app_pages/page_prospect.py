@@ -44,11 +44,11 @@ def page_prospect_body():
 
     st.write("### Prospect Churnometer Interface")
     st.info(
-        f"* The client is interested in determining whether or not a given prospect will churn. "
-        f"If so, the client is interested to know when. In addition, the client is "
-        f"interested in learning from which cluster this prospect will belong in the customer base. "
-        f"Based on that, present potential factors that could maintain and/or bring  "
-        f"the prospect to a non-churnable cluster."
+        f"* Choosing variable values will determine whether or not a given prospect will churn. "
+        f"If prospect is predicted to churn In addition, a cluster analysis is presented "
+        f"enabling learning from which cluster this prospect will belong in the customer base. "
+        f"Based on that, the potential factors that could maintain and/or bring  "
+        f"the prospect to a non-churnable cluster is presented."
     )
     st.write("---")
 
@@ -73,7 +73,7 @@ def check_variables_for_UI(tenure_features, churn_features, cluster_features):
     import itertools
 
     # The widgets inputs are the features used in all pipelines (tenure, churn, cluster)
-    # We combine them only with unique values
+    # Combined features with unique values only
     combined_features = set(
         list(
             itertools.chain(tenure_features, churn_features, cluster_features)
@@ -91,11 +91,10 @@ def DrawInputsWidgets():
     col4, col5, col6 = st.beta_columns(3)
     col7, col8, = st.beta_columns(2)
 
-    # We are using these features to feed the ML pipeline - values copied from check_variables_for_UI() result
-
+    # Features to feed the ML pipeline - values copied from check_variables_for_UI() result
     # create an empty DataFrame, which will be the live data
     X_live = pd.DataFrame([], index=[0])
-    # from here on we draw the widget based on the variable type (numerical or categorical)
+    # Widget based on the variable type (numerical or categorical)
     # and set initial values
     with col1:
         feature = "NumOfProducts"

@@ -5,7 +5,7 @@ altair<5
 pandas==1.4.2
 ydata-profiling==4.4.0 # Data Exploration Varibles Distribution
 ipywidgets==8.0.2 # Data Exploration Widgets
-scikit-learn==0.24.2 # Onehotencoder etc
+scikit-learn==0.24.2 # Onehotencoder etc,
 feature-engine==1.0.2 # For Correlation analysis
 matplotlib==3.3.1 # For Correlation analysis
 seaborn==0.11.0 # Data visualization library

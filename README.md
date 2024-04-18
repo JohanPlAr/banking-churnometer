@@ -65,11 +65,27 @@ How will the client benefit?
 ## Dashboard Design
 * List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
 * Later, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but subsequently you used another plot type).
-
+* Quick Project Summary
+- Project Terms & Jargon, Business Requirements
+* Customer Base Churn Study
+- Inspect Customer Base - displays sample of the Dataset
+- Churn Levels per Variable - displays the variables target value distribution  
+- Parallel plot - displays the most correlated variables against target values 
+* Prospect Churnometer 
+- Prospect Churnometer Interface - streamlit widgets to add prospect variable values
+- Churn prediction and Cluster Analysis 
+* Project Hypothesis and Validation
+- Info text
+* ML: Prospect Churn
+- Pipeline Details and performance data
+* ML: Predict Tenure
+- Pipeline Details and performance data
+* ML: Cluster Analysis
+- Plots of Feature Importance, Cluster Silhoutte and Pipeline
 
 
 ## Unfixed Bugs
-* You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
+* No infixed Bugs
 
 ## Deployment
 ### Heroku
@@ -87,13 +103,25 @@ How will the client benefit?
 
 
 ## Main Data Analysis and Machine Learning Libraries
-* Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries.
-
+streamlit==0.85.0 # Streamlit app
+plotly==4.12.0 # Data visualization library
+altair<5 # Data visualization library
+pandas==1.4.2 # Data manipulation and analysis library
+ydata-profiling==4.4.0 # Data Exploration and Variable Distribution analysis
+ipywidgets==8.0.2 # Data Exploration Widgets
+scikit-learn==0.24.2 # Machine Learning library for tasks like OneHotEncoding, etc.
+feature-engine==1.0.2 # Feature engineering library for correlation analysis
+matplotlib==3.3.1 # Data visualization library for correlation analysis
+seaborn==0.11.0 # Data visualization library
+ppscore==1.2.0 # PPS (Predictive Power Score) package
+imbalanced-learn==0.8.0 # Library for handling imbalanced datasets, including SMOTE
+yellowbrick==1.3 # Visualization library for machine learning models
 
 ## Credits 
 
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
-* You can break the credits section up into Content and Media, depending on what you have included in your project. 
+* Kaggle for offering the dataset
+* Code Institute for educational material and especially for the walkthrough project
+Churnometer which was the main inspiration for this project. The Streamlit banking-churnometer app was developed following this example.
 
 ### Content 
 
@@ -109,5 +137,5 @@ How will the client benefit?
 
 
 ## Acknowledgements (optional)
-* Thank the people that provided support through this project.
+* Code 
 

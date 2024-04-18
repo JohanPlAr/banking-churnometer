@@ -76,18 +76,18 @@ def predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile)
 
   	# text based on "07 - Modeling and Evaluation - Cluster Sklearn" notebook conclusions
     statement = (
-        f"* Historically, **users in Clusters 0  don't tend to Churn** "
-        f"whereas in **Cluster 1 a third of users churned** "
-        f"and in **Cluster 2 a quarter of users churned**."
+        f"* Historically, users in **Cluster 0** don't tend to Churn "
+        f"in **Cluster 1** has just short of a fifth of users churned"
+        f"while in **Cluster 2** 30% of users churned."
     )
     st.info(statement)
 
   	# text based on "07 - Modeling and Evaluation - Cluster Sklearn" notebook conclusions
     statement = (
         f"* The cluster profile interpretation allowed us to label the cluster in the following fashion:\n"
-        f"* Cluster 0 has user without internet, who is a low spender with phone\n"
-        f"* Cluster 1 has user with Internet, who is a high spender with phone\n"
-        f"* Cluster 2 has user with Internet , who is a mid spender without phone"
+        f"* Cluster 0 has typically 0 Balance, come from France or Spain and consist of more Females\n"
+        f"* Cluster 1 has typically Male users from France with 1 Product and mid to high Balance.\n"
+        f"* Cluster 2 are typically from Germany, with high Balance and consists of more Females"
     )
     st.success(statement)
 
