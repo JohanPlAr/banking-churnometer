@@ -11,6 +11,5 @@ matplotlib==3.3.1 # For Correlation analysis
 seaborn==0.11.0 # Data visualization library
 ppscore==1.2.0 # PPScore package
 feature-engine==1.0.2 #
-xgboost==1.2.1 #
 imbalanced-learn==0.8.0 # Smote Feature
 yellowbrick==1.3
