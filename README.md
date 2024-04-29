@@ -7,56 +7,75 @@
 
 - The bank customer churn dataset is a commonly used dataset for predicting customer churn in the banking industry. It contains information on bank customers who either left the bank or continue to be a customer. The dataset has 10 000 rows and includes the following attributes:
 
-- Customer ID: A unique identifier for each customer
-- Surname: The customer's surname or last name
-- Credit Score: A numerical value representing the customer's credit score
-- Geography: The country where the customer resides (France, Spain, or Germany)
-- Gender: The customer's gender (Male or Female)
-- Age: The customer's age
-- Tenure: The number of years the customer has been with the bank
-- Balance: The customer's account balance
-- NumOfProducts: The number of bank products the customer uses (e.g., savings account, credit card)
-- HasCrCard: Whether the customer has a credit card (1 = yes, 0 = no)
-- IsActiveMember: Whether the customer is an active member (1 = yes, 0 = no)
-- EstimatedSalary: The estimated salary of the customer
-- Exited: Whether the customer has churned (1 = yes, 0 = no)
-
+| Variable | Meaning | Units |
+|----------|---------|-------|
+| RowNumber | A unique identifier for each row | 10000 |
+| Customer ID | A unique identifier for each customer | 10000 |
+| Surname | The customer's surname or last name | 2932 Surnames |
+| Credit Score | A numerical value representing the customer's credit score | 352-827 |
+| Geography | The country where the customer resides | France, Spain, or Germany |
+| Gender | The customer's gender | Male or Female |
+| Age | The customer's age | 22-92 Years |
+| Tenure | The number of years the customer has been with the bank | 0-10 Years |
+| Balance | The customer's account balance | 0-247198 Currency|
+| NumOfProducts | The number of bank products the customer uses (e.g., savings account, credit card) | 1-4 Products |
+| HasCrCard | Whether the customer has a credit card | 1 = yes, 0 = no |
+| IsActiveMember | Whether the customer is an active member | 1 = yes, 0 = no |
+| EstimatedSalary | The estimated salary of the customer | 193-195193 Currency |
+| Exited | Whether the customer has churned| 1 = yes, 0 = no |
 
 ## Business Requirements
 * Our bank is facing a significant challenge with customer churn, which is negatively impacting our revenue and growth. To address this issue, we require a robust predictive analysis solution that can accurately identify customers who are likely to churn.
 
 ## Hypothesis and how to validate?
-* We suspect that active customers 
+* We suspect customers are churning with low engagement (Not Active Members)
+- Run Customer Base Churn Study and produce relevant plots
+* We suspect that customers using fewer products(1-2) are churning
+- Run Customer Base Churn Study and produce relevant plots
+* We suspect midage customers are more likely to Churn
+- Run Customer Base Churn Study and produce relevant plots
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks
-* List your business requirements and a rationale to map them to the Data Visualizations and ML tasks
+* Business requirement 1: Correlation study and data visualization
+- As a client I want to inspect the Customer data so that I can get an idea of which variables are important for the churning.
+- As a client I want to display a heatmap of the spearman correlation coefficients so that I can order the variables by importance concerning churn.
+- As a client I want to plot the important variables against the churn variable so that I can visualize how such a variable is correlated with churn.
+Business requirement 2: Predict prospect churn risk and tenure 
+As a client I want to select variable values I can easily produce a prospect customer.
+As a client I want to use an ML model so that I can predict a prospects risk of churning.
+As a client I want to use the ML model so that I can predict Tenure of the churning prospect.
+Business Requirement 3: Cluster Analysis on prospect
+As a client I want to use a ML Clustering model so that I can find patterns in the customer base that will help me take actions to reduce churn risk.
 
 
 ## ML Business Case
-- What are the business requirements?
-The client interested in understanding first of all if but also why customers are likely to churn. Therefore, the client expects visualizations of the correlated variables against churned customers and an algoritm based churned predictor. The Client also wants to preidict the likely Tenure when a customer is predicted to churn. Also the client wish to conduct a Cluster analysis to better understand if there are any potential groupings of the customers that can improve marketing strategies.
+1. What are the business requirements?
+- The client interested in understanding first of all if but also why customers are likely to churn. Therefore, the client expects visualizations of the correlated variables against churned customers and an algoritm based churned predictor. 
+- The Client also wants to preidict the likely Tenure when a customer is predicted to churn. 
+- The Client also wishes to conduct a Cluster analysis to better understand if there are any potential groupings of the customers that can improve marketing strategies.
 
-- Is there any business requirement that can be answered with conventional data analysis?
-Yes, we can use conventional data analysis to investigate the correlation between variables and churned customers.
-- Does the client need a dashboard or an API endpoint?
-The client needs a dashboard.
-- What does the client consider as a successful project outcome?
-A customer prospect churn prediction relying on a machine learning model. A predict Tenure Model implemented with the predict churn model to help the client identify high risk churning. A cluster Study with to identify groups of customers that might benefit marketing strategies. 
-- Can you break down the project into Epics and User Stories?
-Information gathering and data collection.
-Data visualization, cleaning, and preparation.
-Model training, optimization and validation.
-Dashboard planning, designing, and development.
-Dashboard deployment and release.
-- Ethical or Privacy concerns?
-No. The client found a public dataset.
-- Does the data suggest a particular model?
-The data suggests a classifier where the target is to classify either churned or not churned prospect customers. This also applies for the Cluster Study.
-- What are the model's inputs and intended outputs?
-The inputs are information aboutg the customer prospect and the output is the churn prediction.
-What are the criteria for the performance goal of the predictions?
-We agreed with the client on an Recall score of at least 0.80 on the train set as well as on the test set.
-How will the client benefit?
+2. Is there any business requirement that can be answered with conventional data analysis?
+- Yes, we can use conventional data analysis to investigate the correlation between variables and churned customers.
+3. Does the client need a dashboard or an API endpoint?
+- The client needs a dashboard.
+4. What does the client consider as a successful project outcome?
+- A customer prospect churn prediction relying on a machine learning model. A predict Tenure Model implemented with the predict churn model to help the client identify high risk churning. 
+- A cluster Study to identify groups of customers that might benefit of marketing strategies. 
+5. Can you break down the project into Epics and User Stories?
+- Information gathering and data collection.
+- Data visualization, cleaning, and preparation.
+- Model training, optimization and validation.
+- Dashboard planning, designing, and development.
+- Dashboard deployment and release.
+6. Ethical or Privacy concerns?
+- No, The client found a public dataset.
+7. Does the data suggest a particular model?
+- The data suggests a classifier where the target is to classify either churned or not churned prospect customers. This also applies for the Cluster Study.
+8. What are the model's inputs and intended outputs?
+- The inputs are information about the customer prospect and the output is the churn prediction.
+9. What are the criteria for the performance goal of the predictions?
+- We agreed with the client on an Recall score of at least 0.80 on the train set as well as on the test set.
+10. How will the client benefit?
 - Reduce Customer Churn through identification of customers at risk of churning, enabling proactive retention strategies and reducing overall customer attrition.
 - Improve Customer Lifetime Value the client can retain more customers and aim to increase the average customer lifetime value, leading to higher revenue and profitability.
 - Enhance Targeted Marketing Campaigns: The predictive model will provide valuable insights to tailor our marketing efforts and personalize offers, leading to more effective customer engagement and retention.
@@ -64,7 +83,6 @@ How will the client benefit?
 
 ## Dashboard Design
 * List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
-* Later, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but subsequently you used another plot type).
 * Quick Project Summary
 - Project Terms & Jargon, Business Requirements
 * Customer Base Churn Study

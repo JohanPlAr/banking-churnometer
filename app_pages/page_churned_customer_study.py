@@ -140,4 +140,3 @@ def parallel_plot_churn(df_eda):
             '- 1 = "Churned"\n' 
             '- 0 = "Not Churned"')
     st.plotly_chart(fig)
-   

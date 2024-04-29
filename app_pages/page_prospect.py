@@ -45,8 +45,9 @@ def page_prospect_body():
     st.write("### Prospect Churnometer Interface")
     st.info(
         f"* Choosing variable values will determine whether or not a given prospect will churn. "
-        f"If prospect is predicted to churn In addition, a cluster analysis is presented "
-        f"enabling learning from which cluster this prospect will belong in the customer base. "
+        f"If prospect is predicted to churn a predicted prospect tenure is presented, in addition,"
+        f"a cluster analysis is displayed, enabling learning from which cluster "
+        f"this prospect will belong in the customer base."
         f"Based on that, the potential factors that could maintain and/or bring  "
         f"the prospect to a non-churnable cluster is presented."
     )
