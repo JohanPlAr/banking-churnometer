@@ -1,5 +1,17 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+### Banking Churnometer
 
+## Table of Content
+
+- [About Dataset](#about-dataset)
+- [Business Requirements](#business-requirements)
+- [Project hypothesis and validation](#project-hypothesis-and-validation)
+- [Rationale to map the business requirements to the Data Visualizations and ML tasks](#rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks)
+- [ML Business Case](#ml-business-case)
+- [Dashboard Design](#dashboard-design)
+- [Unfixed Bugs](#unfixed-bugs)
+- [Deployment to Heroku](#deployment-to-heroku)
+- [Main Data Analysis and Machine Learning Libraries](#main-data-analysis-and-machine-learning-libraries)
+- [Credits](#credits)
 
 ## About Dataset
 
@@ -17,7 +29,7 @@
 | Gender | The customer's gender | Male or Female |
 | Age | The customer's age | 22-92 Years |
 | Tenure | The number of years the customer has been with the bank | 0-10 Years |
-| Balance | The customer's account balance | 0-247198 Currency|
+| Balance | The customer's account balance | 0-247198 Currency |
 | NumOfProducts | The number of bank products the customer uses (e.g., savings account, credit card) | 1-4 Products |
 | HasCrCard | Whether the customer has a credit card | 1 = yes, 0 = no |
 | IsActiveMember | Whether the customer is an active member | 1 = yes, 0 = no |
@@ -27,7 +39,7 @@
 ## Business Requirements
 * Our bank is facing a significant challenge with customer churn, which is negatively impacting our revenue and growth. To address this issue, we require a robust predictive analysis solution that can accurately identify customers who are likely to churn.
 
-## Hypothesis and how to validate?
+## Project Hypothesis and Validation
 * We suspect customers are churning with low engagement (Not Active Members)
 - Run Customer Base Churn Study and produce relevant plots
 * We suspect that customers using fewer products(1-2) are churning
@@ -35,7 +47,7 @@
 * We suspect midage customers are more likely to Churn
 - Run Customer Base Churn Study and produce relevant plots
 
-## The rationale to map the business requirements to the Data Visualizations and ML tasks
+## Rationale to map the business requirements to the Data Visualizations and ML tasks
 * Business requirement 1: Correlation study and data visualization
 - As a client I want to inspect the Customer data so that I can get an idea of which variables are important for the churning.
 - As a client I want to display a heatmap of the spearman correlation coefficients so that I can order the variables by importance concerning churn.
@@ -50,65 +62,67 @@ As a client I want to use a ML Clustering model so that I can find patterns in t
 
 ## ML Business Case
 1. What are the business requirements?
-- The client interested in understanding first of all if but also why customers are likely to churn. Therefore, the client expects visualizations of the correlated variables against churned customers and an algoritm based churned predictor. 
-- The Client also wants to preidict the likely Tenure when a customer is predicted to churn. 
-- The Client also wishes to conduct a Cluster analysis to better understand if there are any potential groupings of the customers that can improve marketing strategies.
+    - The client interested in understanding first of all if but also why customers are likely to churn. Therefore, the client expects visualizations of the correlated variables against churned customers and an algoritm based churned predictor. 
+    - The Client also wants to preidict the likely Tenure when a customer is predicted to churn. 
+    - The Client also wishes to conduct a Cluster analysis to better understand if there are any potential groupings of the customers that can improve marketing strategies.
 
 2. Is there any business requirement that can be answered with conventional data analysis?
-- Yes, we can use conventional data analysis to investigate the correlation between variables and churned customers.
+    - Yes, we can use conventional data analysis to investigate the correlation between variables and churned customers.
 3. Does the client need a dashboard or an API endpoint?
-- The client needs a dashboard.
+    - The client needs a dashboard.
 4. What does the client consider as a successful project outcome?
-- A customer prospect churn prediction relying on a machine learning model. A predict Tenure Model implemented with the predict churn model to help the client identify high risk churning. 
-- A cluster Study to identify groups of customers that might benefit of marketing strategies. 
+    - A customer prospect churn prediction relying on a machine learning model. A predict Tenure Model implemented with the predict churn model to help the client identify high risk churning. 
+    - A cluster Study to identify groups of customers that might benefit of marketing strategies. 
 5. Can you break down the project into Epics and User Stories?
-- Information gathering and data collection.
-- Data visualization, cleaning, and preparation.
-- Model training, optimization and validation.
-- Dashboard planning, designing, and development.
-- Dashboard deployment and release.
+    - Information gathering and data collection.
+    - Data visualization, cleaning, and preparation.
+    - Model training, optimization and validation.
+    - Dashboard planning, designing, and development.
+    - Dashboard deployment and release.
 6. Ethical or Privacy concerns?
-- No, The client found a public dataset.
+    - No, The client found a public dataset.
 7. Does the data suggest a particular model?
-- The data suggests a classifier where the target is to classify either churned or not churned prospect customers. This also applies for the Cluster Study.
+    - The data suggests a classifier where the target is to classify either churned or not churned prospect customers. This also applies for the Cluster Study.
 8. What are the model's inputs and intended outputs?
-- The inputs are information about the customer prospect and the output is the churn prediction.
+    - The inputs are information about the customer prospect and the output is the churn prediction.
 9. What are the criteria for the performance goal of the predictions?
-- We agreed with the client on an Recall score of at least 0.80 on the train set as well as on the test set.
+    - We agreed with the client on an Recall score of at least 0.80 on the train set as well as on the test set.
 10. How will the client benefit?
-- Reduce Customer Churn through identification of customers at risk of churning, enabling proactive retention strategies and reducing overall customer attrition.
-- Improve Customer Lifetime Value the client can retain more customers and aim to increase the average customer lifetime value, leading to higher revenue and profitability.
-- Enhance Targeted Marketing Campaigns: The predictive model will provide valuable insights to tailor our marketing efforts and personalize offers, leading to more effective customer engagement and retention.
+    - Reduce Customer Churn through identification of customers at risk of churning, enabling proactive retention strategies and reducing overall customer attrition.
+    - Improve Customer Lifetime Value the client can retain more customers and aim to increase the average customer lifetime value, leading to higher revenue and profitability.
+    - Enhance Targeted Marketing Campaigns: The predictive model will provide valuable insights to tailor our marketing efforts and personalize offers, leading to more effective customer engagement and retention.
 
 
 ## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
+    
+[More details with images on App Design here:](APPIMAGES.md)
+
 * Quick Project Summary
-- Project Terms & Jargon, Business Requirements
+    - Project Terms & Jargon, Business Requirements
 * Customer Base Churn Study
-- Inspect Customer Base - displays sample of the Dataset
-- Churn Levels per Variable - displays the variables target value distribution  
-- Parallel plot - displays the most correlated variables against target values 
+    - Inspect Customer Base - displays sample of the Dataset
+    - Churn Levels per Variable - displays the variables target value distribution  
+    - Parallel plot - displays the most correlated variables against target values 
 * Prospect Churnometer 
-- Prospect Churnometer Interface - streamlit widgets to add prospect variable values
-- Churn prediction and Cluster Analysis 
+    - Prospect Churnometer Interface - streamlit widgets to add prospect variable values
+    - Churn prediction and Cluster Analysis 
 * Project Hypothesis and Validation
-- Info text
+    - Hypothesis page
 * ML: Prospect Churn
-- Pipeline Details and performance data
+    - Pipeline Details and performance data
 * ML: Predict Tenure
-- Pipeline Details and performance data
+    - Pipeline Details and performance data
 * ML: Cluster Analysis
-- Plots of Feature Importance, Cluster Silhoutte and Pipeline
+    - Plots of Feature Importance, Cluster Silhoutte and Pipeline
 
 
 ## Unfixed Bugs
-* No infixed Bugs
+* No unfixed Bugs
 
 ## Deployment
 ### Heroku
 
-* The App live link is: https://YOUR_APP_NAME.herokuapp.com/ 
+* The App live link is: https://banking-churnometer-bf774a6cbd58.herokuapp.com/ 
 * Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
 * The project was deployed to Heroku using the following steps.
 
@@ -121,25 +135,26 @@ As a client I want to use a ML Clustering model so that I can find patterns in t
 
 
 ## Main Data Analysis and Machine Learning Libraries
-streamlit==0.85.0 # Streamlit app
-plotly==4.12.0 # Data visualization library
-altair<5 # Data visualization library
-pandas==1.4.2 # Data manipulation and analysis library
-ydata-profiling==4.4.0 # Data Exploration and Variable Distribution analysis
-ipywidgets==8.0.2 # Data Exploration Widgets
-scikit-learn==0.24.2 # Machine Learning library for tasks like OneHotEncoding, etc.
-feature-engine==1.0.2 # Feature engineering library for correlation analysis
-matplotlib==3.3.1 # Data visualization library for correlation analysis
-seaborn==0.11.0 # Data visualization library
-ppscore==1.2.0 # PPS (Predictive Power Score) package
-imbalanced-learn==0.8.0 # Library for handling imbalanced datasets, including SMOTE
-yellowbrick==1.3 # Visualization library for machine learning models
+* streamlit==0.85.0 # Streamlit app
+* plotly==4.12.0 # Data visualization library
+* altair<5 # Data visualization library
+* pandas==1.4.2 # Data manipulation and analysis library
+* ydata-profiling==4.4.0 # Data Exploration and Variable Distribution analysis
+* ipywidgets==8.0.2 # Data Exploration Widgets
+* scikit-learn==0.24.2 # Machine Learning library for tasks like OneHotEncoding, etc.
+* feature-engine==1.0.2 # Feature engineering library for correlation analysis
+* matplotlib==3.3.1 # Data visualization library for correlation analysis
+* seaborn==0.11.0 # Data visualization library
+* ppscore==1.2.0 # PPS (Predictive Power Score) package
+* imbalanced-learn==0.8.0 # Library for handling imbalanced datasets, including SMOTE
+* yellowbrick==1.3 # Visualization library for machine learning models
 
 ## Credits 
 
 * Kaggle for offering the dataset
 * Code Institute for educational material and especially for the walkthrough project
 Churnometer which was the main inspiration for this project. The Streamlit banking-churnometer app was developed following this example.
+* Perplexity.ai for the ability to quickly find the relevant Machine Learning links.
 
 ### Content 
 
