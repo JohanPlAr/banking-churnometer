@@ -1,5 +1,3 @@
-### Banking Churnometer
-
 ## Table of Content
 
 - [About Dataset](#about-dataset)
@@ -36,16 +34,22 @@
 | EstimatedSalary | The estimated salary of the customer | 193-195193 Currency |
 | Exited | Whether the customer has churned| 1 = yes, 0 = no |
 
+[Back to Table of content](#table-of-content)
+
 ## Business Requirements
 * Our bank is facing a significant challenge with customer churn, which is negatively impacting our revenue and growth. To address this issue, we require a robust predictive analysis solution that can accurately identify customers who are likely to churn.
 
+[Back to Table of content](#table-of-content)
+
 ## Project Hypothesis and Validation
 * We suspect customers are churning with low engagement (Not Active Members)
-- Run Customer Base Churn Study and produce relevant plots
+    - Run Customer Base Churn Study and produce relevant plots
 * We suspect that customers using fewer products(1-2) are churning
-- Run Customer Base Churn Study and produce relevant plots
+    - Run Customer Base Churn Study and produce relevant plots
 * We suspect midage customers are more likely to Churn
-- Run Customer Base Churn Study and produce relevant plots
+    - Run Customer Base Churn Study and produce relevant plots
+
+[Back to Table of content](#table-of-content)
 
 ## Rationale to map the business requirements to the Data Visualizations and ML tasks
 * Business requirement 1: Correlation study and data visualization
@@ -59,6 +63,7 @@ As a client I want to use the ML model so that I can predict Tenure of the churn
 Business Requirement 3: Cluster Analysis on prospect
 As a client I want to use a ML Clustering model so that I can find patterns in the customer base that will help me take actions to reduce churn risk.
 
+[Back to Table of content](#table-of-content)
 
 ## ML Business Case
 1. What are the business requirements?
@@ -92,6 +97,7 @@ As a client I want to use a ML Clustering model so that I can find patterns in t
     - Improve Customer Lifetime Value the client can retain more customers and aim to increase the average customer lifetime value, leading to higher revenue and profitability.
     - Enhance Targeted Marketing Campaigns: The predictive model will provide valuable insights to tailor our marketing efforts and personalize offers, leading to more effective customer engagement and retention.
 
+[Back to Table of content](#table-of-content)
 
 ## Dashboard Design
     
@@ -115,9 +121,12 @@ As a client I want to use a ML Clustering model so that I can find patterns in t
 * ML: Cluster Analysis
     - Plots of Feature Importance, Cluster Silhoutte and Pipeline
 
+[Back to Table of content](#table-of-content)
 
 ## Unfixed Bugs
 * No unfixed Bugs
+
+[Back to Table of content](#table-of-content)
 
 ## Deployment
 ### Heroku
@@ -133,8 +142,10 @@ As a client I want to use a ML Clustering model so that I can find patterns in t
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
 6. If the slug size is too large then add large files not required for the app to the .slugignore file.
 
+[Back to Table of content](#table-of-content)
 
 ## Main Data Analysis and Machine Learning Libraries
+
 * streamlit==0.85.0 # Streamlit app
 * plotly==4.12.0 # Data visualization library
 * altair<5 # Data visualization library
@@ -149,26 +160,13 @@ As a client I want to use a ML Clustering model so that I can find patterns in t
 * imbalanced-learn==0.8.0 # Library for handling imbalanced datasets, including SMOTE
 * yellowbrick==1.3 # Visualization library for machine learning models
 
+[Back to Table of content](#table-of-content)
+
 ## Credits 
-
-* Kaggle for offering the dataset
+* Kaggle for offering the dataset and for Kaggle users that shared different approaches to dataset analysis. 
 * Code Institute for educational material and especially for the walkthrough project
-Churnometer which was the main inspiration for this project. The Streamlit banking-churnometer app was developed following this example.
-* Perplexity.ai for the ability to quickly find the relevant Machine Learning links.
+Churnometer which was the main inspiration for this project. The Streamlit banking-churnometer app was developed following this example and the code for this project were in some parts largely adaptions of this project.
+* Perplexity.ai for the ability to quickly find the relevant Machine Learning segments and links.
+* My Code Institute Mentor Preciuos Ijege for support and guidance throughout the project.
 
-### Content 
-
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
-
-### Media
-
-- The photos used on the home and sign-up page are from This Open-Source site
-- The images used for the gallery page were taken from this other open-source site
-
-
-
-## Acknowledgements (optional)
-* Code 
-
+[Back to Table of content](#table-of-content)
