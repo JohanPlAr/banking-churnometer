@@ -28,13 +28,14 @@ def page_summary_body():
 
     # copied from README file - "Business Requirements" section
     st.success(
-        f"The project has 2 business requirements:\n"
+        f"The project has 3 business requirements:\n"
         f"* 1 - Understand the patterns from the customer base "
         f"so that the client can learn the most relevant variables that are correlated to a "
         f"churned customer.\n"
-        f"* 2 - Determine whether or not a given prospect will churn."
-        f"If so, the client is interested to know when. In addition, the client is "
-        f"interested in learning from which cluster this prospect will belong in the customer base. "
+        f"* 2 - Determine whether or not a given prospect will churn.\n"
+        f"If so, the client is interested to know when.\n" 
+        f"* 3 - Cluster Analysis of Churned Prospect\n"
+        f"Present learnings from which cluster the prospect will belong in the customer base. "
         f"Based on that, present potential factors that could maintain and/or bring  "
         f"the prospect to a non-churnable cluster."
         )
