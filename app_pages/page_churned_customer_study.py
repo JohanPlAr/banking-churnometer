@@ -25,9 +25,8 @@ def page_churned_customer_study_body():
 
     st.write("### Churned Customer Study")
     st.info(
-        f"* The client is interested in understanding the patterns from the customer base "
-        f"so that the client can learn the most relevant variables correlated "
-        f"to a churned customer.")
+        f"* Study conducted in order to understand the patterns from the customer base "
+        f" and present the most relevant variables correlated to a churned customer.")
 
     # inspect data
     if st.checkbox("Inspect Customer Base"):
@@ -44,18 +43,6 @@ def page_churned_customer_study_body():
         f"* A correlation study was conducted in the notebook to better understand how "
         f"the variables are correlated to Churn levels. \n"
         f"The most correlated variable are: **{vars_to_study}**"
-    )
-
-    # Text based on "02 - Churned Customer Study" notebook - "Conclusions and Next steps" section
-    st.info(
-    "The correlation indications and plots below interpretation converge. \n"
-    "It is indicated that:\n"
-    "- A churned customer is typically in the range between 47 and 58 years old.\n"
-    "- A churned customer typically has a mid-range or higher account Balance.\n"
-    "- A churned customer is typically Female.\n"
-    "- A churned customer is typically from Germany.\n"
-    "- A churned customer typically has 1 or 3-4 Number of Products.\n"
-    "- A churned customer is typically not an Active Member."
     )
 
     # Code copied from "02 - Churned Customer Study" notebook - "EDA on selected variables" section
@@ -75,6 +62,17 @@ def page_churned_customer_study_body():
             f"* Information in yellow indicates the profile from a churned customer"
             )
         parallel_plot_churn(df_eda)
+            # Text based on "02 - Churned Customer Study" notebook - "Conclusions and Next steps" section
+    st.info(
+    "Interpretation of correlation indications and plots above gives: \n"
+    "It is indicated that:\n"
+    "- A churned customer is typically in the range between 47 and 58 years old.\n"
+    "- A churned customer typically has a mid-range or higher account Balance.\n"
+    "- A churned customer is typically Female.\n"
+    "- A churned customer is typically from Germany.\n"
+    "- A churned customer typically has 1 or 3-4 Number of Products.\n"
+    "- A churned customer is typically not an Active Member."
+    )
 
 
 # function created using "02 - Churned Customer Study" notebook code - "Variables Distribution by Churn" section
