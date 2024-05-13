@@ -117,7 +117,7 @@ The app consists of seven pages
 	* State Business Requirements
 
 ### Page 2: Customer Base Churn Study
-	* State business requirement 1
+* State business requirement 1
 	* Checkbox: data inspection on customer base (display the number of rows and columns in the data, and display the first ten rows of the data)
 	* Display the most correlated variables to churn and the conclusions
 	* Checkbox: Individual plots showing the churn levels for each correlated variable 
@@ -125,8 +125,8 @@ The app consists of seven pages
 
 ### Page 3: Prospect Churnometer
 * State business requirement 2
-* Set of widgets inputs related to prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
-* "Run predictive analysis" button that serves the prospect data to our ML pipelines, and predicts if the prospect will churn or not, if so in which timespan the churn will likely occur. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
+  * Set of widgets inputs related to prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
+  * "Run predictive analysis" button that serves the prospect data to our ML pipelines, and predicts if the prospect will churn or not, if so in which timespan the churn will likely occur. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
 
 ### Page 4: Project Hypothesis and Validation
 
